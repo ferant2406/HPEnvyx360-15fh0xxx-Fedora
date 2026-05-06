@@ -13,5 +13,10 @@ Fixes
 Configuration
 - [Traffic Light Buttons](#traffic-light-buttons)
 
+
+Stylus Fix
+----------
+
+
 Automatic Screen Rotation
 MUTE LEDs
