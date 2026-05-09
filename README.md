@@ -67,17 +67,42 @@ Configuration
 
 Add stylus to libwacom
 ----------------------
-The HP Envy x360 15-fh0xxx uses the ELAN213 stylus, but it is not recognized by the system.
+The HP Envy x360 15-fh0xxx uses the ELAN2513 stylus, but it is not recognized by the system.
 Depending on when you are reading, [this pull request](https://github.com/linuxwacom/libwacom/pull/973) might already
-be implemented on the main libwacom library, but until then you can manually add the 
+be implemented on the main [libwacom]() library, but until then you can manually add the 
 stylus to the library.
 
-- Copy the `elan-2513.tablet` file into `/etc/libwacom/`
-`
-sudo cp my-tablet.tablet /etc/libwacom/
-`
+- Copy the `elan-2513.tablet` file:
+```
+# ELAN touchscreen/pen sensor present in the HP Envy x360 15-fhxxx
 
+[Device]
+Name=ELAN 2513
+ModelName=
+DeviceMatch=i2c|04f3|4162
+Class=ISDV4
+IntegratedIn=Display;System
+
+[Features]
+Stylus=true
+Touch=true
+```
+  into `/etc/libwacom/`
+```
+sudo cp elan-2513.tablet /etc/libwacom/
+```
+- Run `libwacom-update-db` to regenerate the udev hardware database so the device gets properly tagged:
+```
+libwacom-update-db /etc/libwacom
+```
+- Restart your system and run `libwacom-list-local-devices`, the stylus should be recognized correctly
+in Gnome Settings -> Graphics Tablets
+
+Fan profile using NBFC
+----------------------
 
 
 Automatic Screen Rotation
+-------------------------
 MUTE LEDs
+---------
