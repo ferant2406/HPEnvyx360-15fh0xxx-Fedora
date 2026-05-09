@@ -68,7 +68,7 @@ Configuration
 Add stylus to libwacom
 ----------------------
 The HP Envy x360 15-fh0xxx uses the ELAN2513 stylus, but it is not recognized by the system.
-Depending on when you are reading, [this pull request](https://github.com/linuxwacom/libwacom/pull/973) might already
+Depending on when you are reading this, [this pull request](https://github.com/linuxwacom/libwacom/pull/973) might already
 be implemented on the main [libwacom]() library, but until then you can manually add the 
 stylus to the library.
 
@@ -100,9 +100,22 @@ in Gnome Settings -> Graphics Tablets
 
 Fan profile using NBFC
 ----------------------
+By default, the fan curve on my laptop is unresponsive, making it so the fan never speeds up even when
+reaching the 80°C. To solve this issue, we can use custom fan curves with the help of Notebook Fan Control.
 
+MUTE LEDs
+---------
+Depending on when you are reading this, this fix might already be implemented in the linux kernel. But until then,
+you'll need to compile the kernel with the appropiate patch
+
+Rclone Browser with ptyxis
+--------------------------
+While the core features on Rclone Browser work, it doesn't recognize the terminal `ptyxis` as it was later 
+implemented in Gnome to replace the `gnome-terminal`, leading to an error trying to open the `rclone` configuration
+from inside Rclone Browser.
 
 Automatic Screen Rotation
 -------------------------
-MUTE LEDs
----------
+The `amd_sfh` module fails to load the accelerometer data at boot. This bug is well documented and as of
+today there is not a fix. We can restore the automatic screen rotation using a workaround.
+
