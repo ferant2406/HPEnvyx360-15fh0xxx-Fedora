@@ -55,6 +55,7 @@ Fixes
 - [Mute LEDs](#mute-leds)
 - [Rclone Browser with ptyxis](#rclone-browser-with-ptyxis)
 - [Screen Autorotation](#screen-autorotation)
+  
 Configuration
 - [Add template to nautilus context menu](#add-template-to-nautilus-context-menu)
 - [Better Fonts](#better-fonts)
@@ -66,6 +67,16 @@ Configuration
 
 Add stylus to libwacom
 ----------------------
+The HP Envy x360 15-fh0xxx uses the ELAN213 stylus, but it is not recognized by the system.
+Depending on when you are reading, [this pull request](https://github.com/linuxwacom/libwacom/pull/973) might already
+be implemented on the main libwacom library, but until then you can manually add the 
+stylus to the library.
+
+- Copy the `elan-2513.tablet` file into `/etc/libwacom/`
+`
+sudo cp my-tablet.tablet /etc/libwacom/
+`
+
 
 
 Automatic Screen Rotation
