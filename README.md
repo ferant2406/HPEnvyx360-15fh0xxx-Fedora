@@ -72,7 +72,7 @@ Depending on when you are reading this, [this pull request](https://github.com/l
 be implemented on the main [libwacom]() library, but until then you can manually add the 
 stylus to the library.
 
-- Copy the `elan-2513.tablet` file:
+- Copy the `elan-2513.tablet` file into `/etc/libwacom/`:
 ```
 # ELAN touchscreen/pen sensor present in the HP Envy x360 15-fhxxx
 
@@ -87,7 +87,6 @@ IntegratedIn=Display;System
 Stylus=true
 Touch=true
 ```
-  into `/etc/libwacom/`
 ```
 sudo cp elan-2513.tablet /etc/libwacom/
 ```
