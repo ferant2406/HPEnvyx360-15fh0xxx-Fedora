@@ -50,7 +50,7 @@ List of Gnome Extensions I Use
 Table of Contents
 -----------------
 Fixes
-- [Add stylus to libwacom](#add-stylus-to-libwacom)
+- [Add touchscreen-stylus to libwacom](#add-touchscreen-stylus-to-libwacom)
 - [Fan profile using NBFC](#fan-profile-using-nbfc)
 - [Mute LEDs](#mute-leds)
 - [Rclone Browser with ptyxis](#rclone-browser-with-ptyxis)
@@ -65,9 +65,9 @@ Configuration
 - [Traffic Light Buttons](#traffic-light-buttons)
 
 
-Add stylus to libwacom
+Add touchscreen-stylus to libwacom
 ----------------------
-The HP Envy x360 15-fh0xxx uses the ELAN2513 stylus, but it is not recognized by the system.
+The HP Envy x360 15-fh0xxx uses the ELAN2513 touchscreen-stylus, but it is not recognized by the system.
 Depending on when you are reading this, [this pull request](https://github.com/linuxwacom/libwacom/pull/973) might already
 be implemented on the main [libwacom]() library, but until then you can manually add the 
 stylus to the library.
