@@ -1,0 +1,12 @@
+# ELAN touchscreen/pen sensor present in the HP Envy x360 15-fhxxx
+
+[Device]
+Name=ELAN 2513
+ModelName=
+DeviceMatch=i2c|04f3|4162
+Class=ISDV4
+IntegratedIn=Display;System
+
+[Features]
+Stylus=true
+Touch=true
