@@ -110,10 +110,38 @@ $ git clone https://github.com/mkottman/acpi_call.git # Clone repository
 $ cd acpi_call
 $ sudo mkdir -p /usr/src/acpi_call-1.2.2
 $ sudo cp -r * /usr/src/acpi_call-1.2.2
-$ sudo nano /usr/src/acpi_call-1.2.2/dkms.conf
 ```
---Copy this and save the file:
+Copy this and save it to `dkms.conf` file:
+`$ sudo nano /usr/src/acpi_call-1.2.2/dkms.conf`
+```
+PACKAGE_NAME="acpi_call"
 
+PACKAGE_VERSION="1.2.2"
+
+CLEAN="make clean"
+
+MAKE="make KDIR=/lib/modules/${kernelver}/build"
+
+BUILT_MODULE_NAME[0]="acpi_call"
+
+DEST_MODULE_LOCATION[0]="/extra"
+
+AUTOINSTALL="yes" 
+```
+Buiild the module:
+```
+$ sudo dkms add -m acpi_call -v 1.2.2
+$ sudo dkms build -m acpi_call -v 1.2.2
+$ sudo dkms install -m acpi_call -v 1.2.2
+```
+Then you can use modprobe:
+`$ sudo modprobe acpi_call`
+Finally, to always load the module open `$ sudo nano /etc/modules-load.d/acpi_call.conf` and just write `acpi_call`.
+- Install Notebook Fan Control using the instructions on their [repository](https://github.com/nbfc-linux/nbfc-linux)
+- Copy the profile configuration files to the nbfc configuration files
+```
+$ sudo cp
+```
 
 MUTE LEDs
 ---------
