@@ -101,10 +101,12 @@ in Gnome Settings -> Graphics Tablets.
 Fan profile using NBFC
 ----------------------
 [ACPI Platform Prifle](https://docs.kernel.org/userspace-api/sysfs-platform_profile.html) does not work on
-my system, which results in the fans not working. To solve this issue, we can use custom fan curves with 
-the help of Notebook Fan Control.
+my system, resulting in the fans not working correctly. To solve this issue, we can use custom fan curves 
+with the help of Notebook Fan Control.
 
 - First you need to install the `acpi_call` and `acpi_ec` module:
+
+Clone the `acpi_call` repository:
 ```
 $ git clone https://github.com/mkottman/acpi_call.git # Clone repository
 $ cd acpi_call
