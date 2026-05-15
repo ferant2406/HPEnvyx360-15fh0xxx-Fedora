@@ -104,7 +104,7 @@ Fan profile using NBFC
 my system, which results in the fans not working. To solve this issue, we can use custom fan curves with 
 the help of Notebook Fan Control.
 
-- First you need to install the `acpi_call` module:
+- First you need to install the `acpi_call` and `acpi_ec` module:
 ```
 $ git clone https://github.com/mkottman/acpi_call.git # Clone repository
 $ cd acpi_call
@@ -134,9 +134,8 @@ $ sudo dkms add -m acpi_call -v 1.2.2
 $ sudo dkms build -m acpi_call -v 1.2.2
 $ sudo dkms install -m acpi_call -v 1.2.2
 ```
-Then you can use modprobe:
-`$ sudo modprobe acpi_call`
 Finally, to always load the module open `$ sudo nano /etc/modules-load.d/acpi_call.conf` and just write `acpi_call`.
+To install `acpi_ec` you can use these [instructions](https://github.com/saidsay-so/acpi_ec).
 - Install Notebook Fan Control using the instructions on their [repository](https://github.com/nbfc-linux/nbfc-linux)
 - Copy the profile configuration files to the nbfc configuration files
 ```
