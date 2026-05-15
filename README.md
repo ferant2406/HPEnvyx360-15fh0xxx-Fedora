@@ -1,4 +1,4 @@
-Fixes and configuration for the HP Envy x360 15 fh0xxx on Fedora 44 Workstation
+Fixes and configuration for the HP Envy x360 15-fh0xxx on Fedora 44 Workstation
 ===============================================================================
 
 Fixes I've come across using Fedora on the HP Envy x360 15-fh0xxx and personal configuration.
@@ -32,6 +32,7 @@ List of Programs I Use
 - Neovim (Fedora Linux)
 - Tweaks (Fedora Linux)
 - VLC (Fedora Linux)
+- Xournal++ (Fedora Linux)
 - Zoom Workplace ([via the Zoom official website](https://zoom.us/download?os=linux))
 
 List of Gnome Extensions I Use
@@ -64,15 +65,18 @@ Configuration
 - [Screen saver](#screen-saver)
 - [Traffic Light Buttons](#traffic-light-buttons)
 
-
 Add touchscreen-stylus to libwacom
-----------------------
+----------------------------------
 The HP Envy x360 15-fh0xxx uses the ELAN2513 touchscreen-stylus, but it is not recognized by the system.
 Depending on when you are reading this, [this pull request](https://github.com/linuxwacom/libwacom/pull/973) might already
 be implemented on the main [libwacom]() library, but until then you can manually add the 
 stylus to the library.
 
 - Copy the `elan-2513.tablet` file into `/etc/libwacom/`:
+```
+$ sudo cp elan-2513.tablet /etc/libwacom/
+```
+`elan-2513.tablet`
 ```
 # ELAN touchscreen/pen sensor present in the HP Envy x360 15-fhxxx
 
@@ -87,20 +91,24 @@ IntegratedIn=Display;System
 Stylus=true
 Touch=true
 ```
-```
-sudo cp elan-2513.tablet /etc/libwacom/
-```
 - Run `libwacom-update-db` to regenerate the udev hardware database so the device gets properly tagged:
 ```
-libwacom-update-db /etc/libwacom
+$ libwacom-update-db /etc/libwacom
 ```
-- Restart your system and run `libwacom-list-local-devices`, the stylus should be recognized correctly
-in Gnome Settings -> Graphics Tablets
+- Restart your system and run `$ libwacom-list-local-devices`, the stylus should be recognized correctly
+in Gnome Settings -> Graphics Tablets.
 
 Fan profile using NBFC
 ----------------------
-By default, the fan curve on my laptop is unresponsive, making it so the fan never speeds up even when
-reaching the 80°C. To solve this issue, we can use custom fan curves with the help of Notebook Fan Control.
+[ACPI Platform Prifle](https://docs.kernel.org/userspace-api/sysfs-platform_profile.html) does not work on
+my system, which results in the fans not working. To solve this issue, we can use custom fan curves with 
+the help of Notebook Fan Control.
+
+- First you need to install the `acpi_call` module:
+```
+$ git clone https://github.com/mkottman/acpi_call.git # Clone repository
+
+``` 
 
 MUTE LEDs
 ---------
