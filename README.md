@@ -107,8 +107,13 @@ the help of Notebook Fan Control.
 - First you need to install the `acpi_call` module:
 ```
 $ git clone https://github.com/mkottman/acpi_call.git # Clone repository
+$ cd acpi_call
+$ sudo mkdir -p /usr/src/acpi_call-1.2.2
+$ sudo cp -r * /usr/src/acpi_call-1.2.2
+$ sudo nano /usr/src/acpi_call-1.2.2/dkms.conf
+```
+--Copy this and save the file:
 
-``` 
 
 MUTE LEDs
 ---------
