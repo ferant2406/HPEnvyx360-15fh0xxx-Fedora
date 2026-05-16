@@ -1,0 +1,16 @@
+[Unit]
+Description=Fix automatic screen rotation on boot
+After=multi-user.target iio-sensor-proxy.service
+
+[Service]
+Type=oneshot
+# Your username here
+User=MYUSERNAME
+# The output of the command: echo $DBUS_SESSION_BUS_ADDRESS
+# example: unix:path=/run/user/1000/bus
+Environment="DBUS_SESSION_BUS_ADDRESS=YOURDBUSSESSIONADRESS"
+RemainAfterExit=no
+ExecStart=/bin/bash -c "/usr/local/bin/autorotate-onboot-fix.sh"
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,150 @@
+{
+  "LegacyTemperatureThresholdsBehaviour": false,
+  "NotebookModel": "HP Envy x360 2-in-1 Laptop 15-fh0xxx",
+  "Author": "fer.antunez24antonio@gmail.com",
+  "EcPollInterval": 1000,
+  "CriticalTemperature": 100,
+  "FanConfigurations": [
+    {
+      "FanDisplayName": "CPU/GPU Fan",
+      "ResetRequired": true,
+      "ReadAcpiMethod": "\\_SB.PCI0.LPC0.EC0.FANG 33026",
+      "WriteAcpiMethod": "\\_SB.PCI0.LPC0.EC0.FANW 33026 $",
+      "ResetAcpiMethod": "\\_SB.PCI0.LPC0.EC0.FANW 33030 0x8",
+      "MinSpeedValue": 0,
+      "MaxSpeedValue": 100,
+      "TemperatureThresholds": [
+        {
+          "UpThreshold": 0,
+          "DownThreshold": 0,
+          "FanSpeed": 0.0
+        },
+        {
+          "UpThreshold": 36,
+          "DownThreshold": 0,
+          "FanSpeed": 20.0
+        },
+        {
+          "UpThreshold": 38,
+          "DownThreshold": 36,
+          "FanSpeed": 22.0
+        },
+        {
+          "UpThreshold": 40,
+          "DownThreshold": 38,
+          "FanSpeed": 24.0
+        },
+        {
+          "UpThreshold": 42,
+          "DownThreshold": 40,
+          "FanSpeed": 26.0
+        },
+        {
+          "UpThreshold": 44,
+          "DownThreshold": 42,
+          "FanSpeed": 28.0
+        },
+        {
+          "UpThreshold": 46,
+          "DownThreshold": 44,
+          "FanSpeed": 30.0
+        },
+        {
+          "UpThreshold": 48,
+          "DownThreshold": 46,
+          "FanSpeed": 33.0
+        },
+        {
+          "UpThreshold": 50,
+          "DownThreshold": 48,
+          "FanSpeed": 36.0
+        },
+        {
+          "UpThreshold": 52,
+          "DownThreshold": 50,
+          "FanSpeed": 39.0
+        },
+        {
+          "UpThreshold": 54,
+          "DownThreshold": 52,
+          "FanSpeed": 42.0
+        },
+        {
+          "UpThreshold": 56,
+          "DownThreshold": 54,
+          "FanSpeed": 46.0
+        },
+        {
+          "UpThreshold": 58,
+          "DownThreshold": 56,
+          "FanSpeed": 50.0
+        },
+        {
+          "UpThreshold": 60,
+          "DownThreshold": 58,
+          "FanSpeed": 54.0
+        },
+        {
+          "UpThreshold": 62,
+          "DownThreshold": 60,
+          "FanSpeed": 58.0
+        },
+        {
+          "UpThreshold": 64,
+          "DownThreshold": 62,
+          "FanSpeed": 63.0
+        },
+        {
+          "UpThreshold": 66,
+          "DownThreshold": 64,
+          "FanSpeed": 68.0
+        },
+        {
+          "UpThreshold": 68,
+          "DownThreshold": 66,
+          "FanSpeed": 73.0
+        },
+        {
+          "UpThreshold": 70,
+          "DownThreshold": 68,
+          "FanSpeed": 78.0
+        },
+        {
+          "UpThreshold": 72,
+          "DownThreshold": 70,
+          "FanSpeed": 83.0
+        },
+        {
+          "UpThreshold": 74,
+          "DownThreshold": 72,
+          "FanSpeed": 88.0
+        },
+        {
+          "UpThreshold": 76,
+          "DownThreshold": 74,
+          "FanSpeed": 93.0
+        },
+        {
+          "UpThreshold": 78,
+          "DownThreshold": 76,
+          "FanSpeed": 98.0
+        },
+        {
+          "UpThreshold": 100,
+          "DownThreshold": 78,
+          "FanSpeed": 100.0
+        }
+      ]
+    }
+  ],
+  "RegisterWriteConfigurations": [
+    {
+      "WriteMode": "Call",
+      "WriteOccasion": "OnWriteFanSpeed",
+      "AcpiMethod": "\\_SB.PCI0.LPC0.EC0.FANW 33030 0xFF",
+      "ResetRequired": true,
+      "ResetWriteMode": "Call",
+      "ResetAcpiMethod": "\\_SB.PCI0.LPC0.EC0.FANW 33030 0x8"
+    }
+  ]
+}

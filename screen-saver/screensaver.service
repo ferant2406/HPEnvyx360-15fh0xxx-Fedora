@@ -1,0 +1,13 @@
+[Unit]
+Description=Enable screensaver to appear when iddle
+After=graphical-session.target
+
+[Service]
+Type=simple
+# Your home directory here
+ExecStart=MYHOMEDIRECTORY/.local/bin/afterdark.sh
+Restart=no
+KillMode=process
+
+[Install]
+WantedBy=default.target

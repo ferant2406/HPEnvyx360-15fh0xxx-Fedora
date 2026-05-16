@@ -1,0 +1,3 @@
+ALL ALL=(ALL) NOPASSWD: /bin/systemctl start cpu-noturbo
+ALL ALL=(ALL) NOPASSWD: /bin/systemctl stop cpu-noturbo
+

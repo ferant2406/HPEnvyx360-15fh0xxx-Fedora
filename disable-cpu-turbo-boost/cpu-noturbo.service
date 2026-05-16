@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable Turbo Boost
+
+[Service]
+ExecStart=/bin/bash -c "echo 0 | tee /sys/devices/system/cpu/cpufreq/boost"
+ExecStop=/bin/bash -c "echo 1 | tee /sys/devices/system/cpu/cpufreq/boost"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=sysinit.target

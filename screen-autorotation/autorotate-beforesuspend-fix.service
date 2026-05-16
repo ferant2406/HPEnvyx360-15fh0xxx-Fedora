@@ -1,0 +1,16 @@
+[Unit]
+Description=Lock screen rotation to fix flipped screen on wake from suspend
+Before=systemd-suspend.service
+
+[Service]
+Type=oneshot
+# Your username here
+User=MYUSERNAME
+# The output of the command: echo $DBUS_SESSION_BUS_ADDRESS
+# example: unix:path=/run/user/1000/bus
+Environment="DBUS_SESSION_BUS_ADDRESS=YOURDBUSSESSIONADRESS"
+RemainAfterExit=no
+ExecStart=/bin/bash -c "/usr/local/bin/autorotate-beforesuspend-fix.sh"
+
+[Install]
+WantedBy=systemd-suspend.service

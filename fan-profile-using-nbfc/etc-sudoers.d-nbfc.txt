@@ -1,0 +1,2 @@
+ALL ALL=(ALL) NOPASSWD: /usr/bin/nbfc config --set *
+ALL ALL=(ALL) NOPASSWD: /usr/bin/nbfc restart
