@@ -7,7 +7,7 @@ other Distros and DEs.
 
 Notes
 =====
-These fixes and configurations were tested in Fedora 44 running kernel 6.19.14-300. Depending
+These fixes and configurations were tested in Fedora 44 running kernel 7.0.8-200. Depending
 on when you are reading this, some of these fixes might not be necesary anymore, and I'll try
 to keep this guide updated.
 
@@ -32,11 +32,15 @@ List of Programs I Use
 - Flatseal (Fedora Linux)
 - Gear Lever ([Flathub](https://flathub.org/en/apps/it.mijorus.gearlever))
 - Main Menu ([Flathub](https://flathub.org/en/apps/page.codeberg.libre_menu_editor.LibreMenuEditor))
+- MiKTeX ([via the MiKTeX official website](https://miktex.org/download))
 - Neovim (Fedora Linux)
+- Rclone Browser ([via their github repository](https://github.com/kapitainsky/RcloneBrowser#how-to-get-it))(See fixes section)
+- Rewaita ([Flathub](https://flathub.org/en/apps/io.github.swordpuffin.rewaita))
 - Tweaks (Fedora Linux)
 - Veracrypt ([via the Veracrypt official website](https://veracrypt.jp/en/Downloads.html))
 - VLC (Fedora Linux)
 - Xournal++ (Fedora Linux)
+- Zathura ([Flathub](https://flathub.org/en/apps/org.pwmt.zathura))
 - Zoom Workplace ([via the Zoom official website](https://zoom.us/download?os=linux))
 
 List of Gnome Extensions I Use
@@ -177,7 +181,6 @@ $ sudo nano /etc/nbfc/nbfc.json
 $ sudo nbfc restart
 ```
 You can monitor the fan and temperature using `$ watch -n 1 nbfc status`
-- If you must have secure boot enabled, you can use `MOK` or something i dont know 
 - Optionally, you can create a shortcut to switch between silent and default fan curve using the 
 [Custom Command Toggle](https://extensions.gnome.org/extension/7012/custom-command-toggle/) extension:
 
@@ -218,7 +221,7 @@ MUTE LEDs
 ---------
 Depending on when you are reading this, this [patch](https://lore.kernel.org/all/20260504-hpenvy-muteled-fix-v3-1-5567fd9b3d25@gmail.com/) 
 might already be implemented in the linux kernel. But until then, you'll need to compile the kernel with the appropiate patch. This patch 
-has been tested on kernel version 7. Follow this [guide](https://docs.fedoraproject.org/en-US/quick-docs/kernel-build-custom/#_building_a_kernel_from_the_fedora_dist_git) 
+has been tested on kernel version 7.0.8-200. Follow this [guide](https://docs.fedoraproject.org/en-US/quick-docs/kernel-build-custom/#_building_a_kernel_from_the_fedora_dist_git) 
 to compile your own kernel.
 ```
 linux-kernel-test.patch
@@ -390,6 +393,29 @@ $ sudo systemctl enable autorotate-aftersuspend-fix.service
 automatic rotation might take a couple of seconds to be enabled on boot. You can check the 
 services output using `journalctl` and `systemd status`.
 
+Add template to nautilus context menu
+-------------------------------------
+Sometimes I want to make a quick text file using the right click context menu. Simply add an 
+empty text file to the `Templates` folder.
+```
+touch ~/Templates/"New Text File.txt"
+```
+
+Better Fonts
+------------
+I find the style of MacOS fonts pretty, and I wanted to make the Fedora font style as close to
+the MacOS font style as I can.
+- Set fonts in Gnome-Tweaks to `Adawaita Sans` or `Noto Sans` (my personal favorite is `Noto Sans`)
+- Set mono space to `Noto Sans Mono`
+- Add this environment variable
+```
+$ sudo nano /etc/environment
+```
+```
+  FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
+```
+The fonts should look a little more like they do in MacOS.
+
 Disable CPU turbo boost
 -----------------------
 The HP Envy x360 15-fh0xxx is equiped with the Ryzen 5 7530U and while it doesn't get very hot,
@@ -525,4 +551,19 @@ Shortcut : #Whatever you want your shortcut to be, I use CTRL+ALT+S
 
 Traffic Light Buttons
 ---------------------
-
+I like the style of traffic light buttons style from MacOS. The easiest way of getting the same
+style on gnome is to install [Rewaita](https://flathub.org/en/apps/io.github.swordpuffin.rewaita).
+If you don't want to install Rewaita, you can just copy the necessary gtk files:
+- Copy the `gtk.css` files to their respective directory:
+```
+$ cd traffic-light-buttons
+$ cp -r * ~/.config/
+```
+- Finally, add this options under All Applications -> Fylesystem -> Other Files in Flatseal:
+```
+  All Applications:
+    Fylesystem:    
+      Other Files:
+        |- xdg-config/gtk-3.0
+        |- xdg-config/gtk-4.0
+```
