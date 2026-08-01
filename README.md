@@ -692,11 +692,16 @@ $ cp -r * ~/.config/
 Keyboard Shortcuts
 ------------------
 This are some of the keyboard shortcuts I use. You can add keyboard shortcuts in System ->
-Keyboard -> View and Customize Shortcuts Custom Shortcuts:
+Keyboard -> View and Customize Shortcuts -> Custom Shortcuts:
 ```
 Name     : Emoji Key
 Command  : gnome-characters
 Shortcut : Shift + Ctrl + Alt + Super + Space # Shortcut for the F1 special key
+```
+```
+Name     : Mission Center 
+Command  : flatpak run io.missioncenter.MissionCenter
+Shortcut : Launch2 # Shortcut for the F12 special key
 ```
 ```
 Name     : System Monitor
