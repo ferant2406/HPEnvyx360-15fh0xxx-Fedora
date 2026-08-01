@@ -5,10 +5,12 @@ After=multi-user.target iio-sensor-proxy.service
 [Service]
 Type=oneshot
 # Your username here
+# Example: User=john
 User=MYUSERNAME
 # The output of the command: echo $DBUS_SESSION_BUS_ADDRESS
-# example: unix:path=/run/user/1000/bus
-Environment="DBUS_SESSION_BUS_ADDRESS=YOURDBUSSESSIONADRESS"
+# It should look like: $ echo $DBUS_SESSION_BUS_ADDRESS -> unix:path=/run/user/1000/bus
+# Example: Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+Environment="DBUS_SESSION_BUS_ADDRESS=YOURDBUSSESSIONADDRESS"
 RemainAfterExit=no
 ExecStart=/bin/bash -c "/usr/local/bin/autorotate-onboot-fix.sh"
 
