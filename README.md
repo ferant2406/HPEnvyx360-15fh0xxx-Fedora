@@ -108,8 +108,8 @@ Fan profile using NBFC
 ----------------------
 [ACPI Platform Prifle](https://docs.kernel.org/userspace-api/sysfs-platform_profile.html)
 does not work correctly on this laptop. This seems to be a reported issue [1](https://www.reddit.com/r/linuxquestions/comments/1p6d65o/power_profiles_do_not_work_on_hp_laptop/)
-[2](https://bugzilla.kernel.org/show_bug.cgi?id=220008)[3](https://h30434.www3.hp.com/t5/Gaming-Notebooks/Fan-control-completely-non-functional-on-Linux-due-to-broken/td-p/9632498)
-[4](https://github.com/pelrun/hp-omen-linux-module/issues/38)[5](https://forums.linuxmint.com/viewtopic.php?t=456899)
+[2](https://bugzilla.kernel.org/show_bug.cgi?id=220008) [3](https://h30434.www3.hp.com/t5/Gaming-Notebooks/Fan-control-completely-non-functional-on-Linux-due-to-broken/td-p/9632498)
+[4](https://github.com/pelrun/hp-omen-linux-module/issues/38) [5](https://forums.linuxmint.com/viewtopic.php?t=456899)
 with HP Laptops. This results in the fans not working correctly. To solve this issue, we can
 use custom fan curves with the help of Notebook Fan Control.
 
@@ -497,10 +497,10 @@ $ gst-inspect-1.0 avdec_h264
 ```
 $ uxplay -avdec
 ```
--Now can use UxPlay normally (normally, if `avdech264` exists, the system will use the official
+- Now can use UxPlay normally (normally, if `avdech264` exists, the system will use the official
 instead of the open codec. You can run UxPlay without `-avdec` now.
 
--You can monitor the UxPlay process via `GStreams`
+- You can monitor the UxPlay process via `GStreams`
 ```
 GST_DEBUG=3 uxplay -avdec
 ```
