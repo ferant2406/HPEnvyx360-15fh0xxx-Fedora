@@ -66,6 +66,7 @@ Configuration
 - [Disable CPU turbo boost](#disable-cpu-turbo-boost)
 - [Screen saver](#screen-saver)
 - [Traffic Light Buttons](#traffic-light-buttons)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
 
 Add touchscreen-stylus to libwacom
 ----------------------------------
@@ -662,7 +663,7 @@ keyboard-shortcut=
 enabled=true
 ```
 - Additionally, we can create a keyboard shortcut to activate a short timeout screen saver
-in System -> Keyboard -> Custom Shortcuts:
+in System -> Keyboard -> View and Customize Shortcuts -> Custom Shortcuts:
 ```
 Name     : Screensaver
 Command  : ptyxis --title 'Screensaver' -- bash -c 'trap "exit 0" INT; MYHOMEDIRECTORY/.local/bin/afterdark_short.sh; exec bash'
@@ -679,11 +680,31 @@ If you don't want to install Rewaita, you can just copy the necessary `gtk` file
 $ cd traffic-light-buttons
 $ cp -r * ~/.config/
 ```
-- Finally, add this options under All Applications -> Fylesystem -> Other Files, in Flatseal:
+- Finally, add this options under All Applications -> Filesystem -> Other Files, in Flatseal:
 ```
   All Applications:
     Fylesystem:
       Other Files:
         |- xdg-config/gtk-3.0
         |- xdg-config/gtk-4.0
+```
+
+Keyboard Shortcuts
+------------------
+This are some of the keyboard shortcuts I use. You can add keyboard shortcuts in System ->
+Keyboard -> View and Customize Shortcuts Custom Shortcuts:
+```
+Name     : Emoji Key
+Command  : gnome-characters
+Shortcut : Shift + Ctrl + Alt + Super + Space # Shortcut for the F1 special key
+```
+```
+Name     : System Monitor
+Command  : gnome-system-monitor
+Shortcut : Shift + Ctrl + Escape
+```
+```
+Name     : Terminal
+Command  : ptyxis --new-window
+Shortcut : Ctrl + Alt + T
 ```
